@@ -1,0 +1,9 @@
+kubectl create secret generic bigip-login -n kube-system --from-literal=username=k8s --from-literal=password=k8s
+
+kubectl create serviceaccount bigip-ctlr -n kube-system
+
+kubectl create clusterrolebinding bigip-ctlr-clusteradmin --clusterrole=cluster-admin --serviceaccount=kube-system:bigip-ctlr
+
+kubectl apply -f https://raw.githubusercontent.com/F5Networks/k8s-bigip-ctlr/master/docs/config_examples/customResourceDefinitions/customresourcedefinitions.yml
+
+https://github.com/F5Networks/k8s-bigip-ctlr/blob/master/docs/config_examples/customResource/IngressLink/cis-config/cis_deploy.yaml
