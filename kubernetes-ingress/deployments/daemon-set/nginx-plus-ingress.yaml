@@ -76,8 +76,9 @@ spec:
          #- -enable-prometheus-metrics
          #- -global-configuration=$(POD_NAMESPACE)/nginx-configuration
           - -enable-snippets
-            # - -ingresslink=nginx-ingress
+         #- -ingresslink=nginx-ingress
           - -report-ingress-status
           - -nginx-status=true
           - -nginx-status-port=8080
           - -nginx-status-allow-cidrs=0.0.0.0/0
+          - -nginx-configmaps=nginx-ingress/nginx-config
